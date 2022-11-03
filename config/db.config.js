@@ -1,12 +1,15 @@
 'use strict';
 const mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 //local mysql db connection
 const dbConn = mysql.createConnection({
-//   host     : 'localhost',
-  user     : 'root',
-  password : 'Noirlee1208@',
-  database : 'api_express'
+  host     : process.env.host,
+  user     : process.env.user,
+  password : process.env.password,
+  database : process.env.database
 });
 
 dbConn.connect(function(err) {
